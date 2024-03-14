@@ -42,21 +42,12 @@ public class P1 {
             listaPal.add(Parser.leerPal("destinos_palets_" + pal + ".txt"));
         }
 
-        BusquedaAleatoria[][] ba = new BusquedaAleatoria[SEED.length][NUMP];
+        BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
         for (int i = 0; i < SEED.length; i++) {
-            for (int j = 0; j < NUMP; j++) {
-                ba[i][j] = new BusquedaAleatoria(SEED[i]);
+                ba[i] = new BusquedaAleatoria(SEED[i]);
+                ba[i].ejecutarBA();
             }
         }
 
-        Solucion[][] sba = new Solucion[SEED.length][NUMP];
-        for (int i = 0; i < SEED.length; i++) {
-            for (int j = 0; j < NUMP; j++) {
-                sba[i][j] = ba[i][j].BA(j);
-                System.out.println(sba[i][j].coste);
-            }
-        }
-        
-    }
 
 }

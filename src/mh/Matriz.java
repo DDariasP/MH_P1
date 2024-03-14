@@ -12,12 +12,7 @@ public class Matriz {
     public Matriz(int a, int b, int[][] n) {
         filas = a;
         columnas = b;
-        m = new int[filas][columnas];
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                m[i][j] = n[i][j];
-            }
-        }
+        m = n;
     }
 
     public Matriz(Matriz copia) {

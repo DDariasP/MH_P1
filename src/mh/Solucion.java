@@ -9,31 +9,23 @@ import java.util.ArrayList;
  */
 public class Solucion {
 
-    public final int ciu, pal, cam;
     public int eval;
     public Matriz m;
-    public double coste;
+    public int coste;
 
-    public Solucion(Integer[] P, int a, int b, int[][] n) {
-        ciu = P[0];
-        pal = P[1];
-        cam = P[2];
+    public Solucion(int a, int b, int[][] n) {
         eval = -1;
         m = new Matriz(a, b, n);
-        coste = -1.0;
+        coste = -1;
     }
 
     public Solucion(Solucion s) {
-        ciu = s.ciu;
-        pal = s.pal;
-        cam = s.cam;
         eval = s.eval;
         m = new Matriz(s.m);
         coste = s.coste;
     }
 
-    public static Solucion genAleatoria(Integer[] P, ArrayList<Integer> listaPal, Random rand) {
-        int cam = P[2];
+    public static Solucion genAleatoria(int cam, ArrayList<Integer> listaPal, Random rand) {
         int[][] matriz = new int[cam][P1.MAXPAL];
         int[] guardados = new int[cam];
         for (int i = 0; i < cam; i++) {
@@ -59,12 +51,12 @@ public class Solucion {
             guardados[x]++;
         }
 
-        Solucion s = new Solucion(P, cam, P1.MAXPAL, matriz);
+        Solucion s = new Solucion(cam, P1.MAXPAL, matriz);
         return s;
     }
 
-    public static double funCoste(Solucion s, Matriz listaDist) {
-        double coste = 0.0;
+    public static int funCoste(Solucion s, Matriz listaDist) {
+        int coste = 0;
 
         ArrayList<Integer> visitadas = new ArrayList<>();
         int actual = 0;
@@ -81,6 +73,7 @@ public class Solucion {
                 }
             }
         }
+        coste = coste + listaDist.m[actual][0];
 
         return coste;
     }
