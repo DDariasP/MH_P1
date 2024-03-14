@@ -9,10 +9,15 @@ public class Matriz {
     public final int filas, columnas;
     public int[][] m;
 
-    public Matriz(int a, int b, int[][] n) {
+    public Matriz(int a, int b) {
         filas = a;
         columnas = b;
-        m = n;
+        m = new int[a][b];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                m[i][j] = -1;
+            }
+        }
     }
 
     public Matriz(Matriz copia) {

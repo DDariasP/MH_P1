@@ -23,7 +23,10 @@ public class P1 {
      */
     public static void main(String[] args) {
 
+        System.out.println("RandomTest");
+        System.out.println("---------------------");
         RandomTest.randomTest();
+        System.out.println("---------------------\n");
 
         P = new ArrayList<>();
         P.add(P0);
@@ -42,12 +45,25 @@ public class P1 {
             listaPal.add(Parser.leerPal("destinos_palets_" + pal + ".txt"));
         }
 
+        System.out.println("BA");
         BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
+        System.out.println("---------------------");
         for (int i = 0; i < SEED.length; i++) {
-                ba[i] = new BusquedaAleatoria(SEED[i]);
-                ba[i].ejecutarBA();
-            }
+            ba[i] = new BusquedaAleatoria(SEED[i]);
+            ba[i].ejecutarBA();
+            System.out.println("---------------------");
         }
+        System.out.println("");
 
+        System.out.println("BL");
+        BusquedaLocal[] bl = new BusquedaLocal[SEED.length];
+        System.out.println("---------------------");
+        for (int i = 0; i < SEED.length; i++) {
+            bl[i] = new BusquedaLocal(SEED[i]);
+            bl[i].ejecutarBL();
+            System.out.println("---------------------");
+        }
+        System.out.println("");
 
+    }
 }

@@ -23,7 +23,6 @@ public class RandomTest {
         RandomTest t2 = new RandomTest(000);
         test1(t2);
         test2(t2);
-        System.out.println("");
     }
 
     public static void test1(RandomTest t) {

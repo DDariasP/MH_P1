@@ -12,8 +12,7 @@ import java.util.Scanner;
 public class Parser {
 
     public static Matriz leerDist(int ciu, String filename) {
-        Matriz listaDist;
-        int[][] m = new int[ciu][ciu];
+        Matriz listaDist = new Matriz(ciu, ciu);
         try {
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
@@ -27,10 +26,9 @@ public class Parser {
                 for (int i = 0; i < ciu; i++) {
                     fila[i] = Integer.parseInt(tokens[i]);
                 }
-                m[contador] = fila;
+                listaDist.m[contador] = fila;
                 contador++;
             }
-            listaDist = new Matriz(ciu, ciu, m);
             scanner.close();
         } catch (IOException ex) {
             return null;
