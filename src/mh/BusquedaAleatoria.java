@@ -12,18 +12,18 @@ public class BusquedaAleatoria {
     public static final int MAX = 1000;
     public final int SEED;
     public Random rand;
-    public Solucion[] sba;
+    public Solucion[] solBA;
 
     public BusquedaAleatoria(int a) {
         SEED = a;
         rand = new Random(SEED);
-        sba = new Solucion[P1.NUMP];
+        solBA = new Solucion[P1.NUMP];
     }
 
     public void ejecutarBA() {
         for (int i = 0; i < P1.NUMP; i++) {
-            sba[i] = BA(i);
-            System.out.println(sba[i].coste + "\t" + sba[i].eval);
+            solBA[i] = BA(i);
+            System.out.println(solBA[i].coste + "\t" + solBA[i].eval);
         }
     }
 

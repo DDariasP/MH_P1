@@ -8,17 +8,17 @@ import java.util.ArrayList;
  */
 public class BusquedaVoraz {
 
-    public Solucion[] sbv;
+    public Solucion[] solBV;
 
     public BusquedaVoraz() {
-        sbv = new Solucion[P1.NUMP];
+        solBV = new Solucion[P1.NUMP];
     }
 
     public void ejecutarBV() {
         for (int i = 0; i < P1.NUMP; i++) {
-            sbv[i] = BV(i);
-            System.out.println(sbv[i].coste);
-            System.out.println(sbv[i].m);
+            solBV[i] = BV(i);
+            System.out.println(solBV[i].coste);
+            System.out.println(solBV[i].m);
         }
     }
 
@@ -38,7 +38,8 @@ public class BusquedaVoraz {
         Matriz matriz = new Matriz(cam, P1.MAXPAL, -1);
 
         for (int i = 0; i < listaPal.size(); i++) {
-            int ciupal = listaPal.get(i) - 1;
+            int palet = listaPal.get(i);
+            int ciupal = palet - 1;
             int[] distcalc = new int[cam];
             for (int j = 0; j < cam; j++) {
                 int ciucam = ultimopal[j] - 1;
@@ -52,8 +53,8 @@ public class BusquedaVoraz {
                     elegido = j;
                 }
             }
-            matriz.m[elegido][palxcam[elegido]] = ciupal + 1;
-            ultimopal[elegido] = ciupal + 1;
+            matriz.m[elegido][palxcam[elegido]] = palet;
+            ultimopal[elegido] = palet;
             palxcam[elegido]++;
         }
 

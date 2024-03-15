@@ -12,6 +12,7 @@ public class Solucion {
     public int eval;
     public Matriz m;
     public int coste;
+    public double TF;
 
     public Solucion(Matriz n) {
         eval = -1;
@@ -22,9 +23,9 @@ public class Solucion {
     public static Solucion genRandom(int cam, ArrayList<Integer> listaPal, Random rand) {
         Matriz matriz = new Matriz(cam, P1.MAXPAL, -1);
 
-        int[] guardados = new int[cam];
+        int[] palxcam = new int[cam];
         for (int i = 0; i < cam; i++) {
-            guardados[i] = 0;
+            palxcam[i] = 0;
         }
 
         int contador = 0;
@@ -32,7 +33,7 @@ public class Solucion {
             int palet = listaPal.get(contador);
             int x = rand.nextInt(cam);
             int y = 0;
-            while (guardados[x] == P1.MAXPAL) {
+            while (palxcam[x] == P1.MAXPAL) {
                 x = (x + 1) % cam;
             }
             while (matriz.m[x][y] != -1) {
@@ -40,7 +41,7 @@ public class Solucion {
             }
             matriz.m[x][y] = palet;
             contador++;
-            guardados[x]++;
+            palxcam[x]++;
         }
 
         return (new Solucion(matriz));

@@ -9,21 +9,21 @@ import java.util.Random;
  */
 public class BusquedaLocal {
 
-    public static final int MAX = 1000;
+    public static final int MAX = 5000;
     public final int SEED;
     public Random rand;
-    public Solucion[] sbl;
+    public Solucion[] solBL;
 
     public BusquedaLocal(int a) {
         SEED = a;
         rand = new Random(SEED);
-        sbl = new Solucion[P1.NUMP];
+        solBL = new Solucion[P1.NUMP];
     }
 
     public void ejecutarBL() {
         for (int i = 0; i < P1.NUMP; i++) {
-            sbl[i] = BL(i);
-            System.out.println(sbl[i].coste + "\t" + sbl[i].eval);
+            solBL[i] = BL(i);
+            System.out.println(solBL[i].coste + "\t" + solBL[i].eval);
         }
     }
 

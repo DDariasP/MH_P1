@@ -64,13 +64,23 @@ public class P1 {
 //            System.out.println("---------------------");
 //        }
 //        System.out.println("");
+//
+//        System.out.println("ES");
+//        EnfriamientoSimulado[] es = new EnfriamientoSimulado[SEED.length];
+//        System.out.println("---------------------");
+//        for (int i = 0; i < SEED.length; i++) {
+//            es[i] = new EnfriamientoSimulado(SEED[i]);
+//            es[i].ejecutarES();
+//            System.out.println("---------------------");
+//        }
+//        System.out.println("");
 
-        System.out.println("BV");
-        BusquedaVoraz bv = new BusquedaVoraz();
-        System.out.println("---------------------");
-        bv.ejecutarBV();
-        System.out.println("---------------------");
-        System.out.println("");
+//        System.out.println("BV");
+//        BusquedaVoraz bv = new BusquedaVoraz();
+//        System.out.println("---------------------");
+//        bv.ejecutarBV();
+//        System.out.println("---------------------");
+//        System.out.println("");
 
     }
 }
