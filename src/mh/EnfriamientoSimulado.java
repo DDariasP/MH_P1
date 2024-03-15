@@ -42,17 +42,14 @@ public class EnfriamientoSimulado {
         ArrayList<Integer> listaPal = P1.listaPal.get(tamP);
         Matriz listaDist = P1.listaDist.get(tamP);
         int filas = listaDist.filas;
-        int columnas = listaDist.columnas;
 
         double dividendo = 0.0;
         double divisor = 0.0;
         for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
+            for (int j = 0; j <= i; j++) {
                 int d = listaDist.m[i][j];
-                if (d != 0) {
-                    dividendo = dividendo + d;
-                    divisor++;
-                }
+                dividendo = dividendo + d;
+                divisor++;
 
             }
         }
@@ -60,18 +57,28 @@ public class EnfriamientoSimulado {
 
         double sumatorio = 0.0;
         for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
+            for (int j = 0; j <= i; j++) {
                 int d = listaDist.m[i][j];
-                if (d != 0) {
-                    double resta = d - media;
-                    sumatorio = sumatorio + Math.pow(resta, 2);
-                }
+                double resta = d - media;
+                sumatorio = sumatorio + Math.pow(resta, 2);
 
             }
         }
-        sigma = Math.sqrt(sumatorio / (ciu - 1));
+        sigma = Math.sqrt(sumatorio / divisor);
         lnCiu = Math.log(ciu);
         T0 = sigma / lnCiu;
+
+//        if (tamP == 2 && SEED == 321) {
+//            System.out.println("\ndividendo=" + dividendo);
+//            System.out.println("divisor=" + divisor);
+//            System.out.println("media=" + media);
+//            System.out.println("sumatorio=" + sumatorio);
+//            System.out.println("ciu=" + ciu);
+//            System.out.println("sigma=" + sigma);
+//            System.out.println("lnCiu=" + lnCiu);
+//            System.out.println("T0=" + T0);
+//            System.out.println("");
+//        }
 
         T = T0;
         int eval = 0;
