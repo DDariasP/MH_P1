@@ -1,6 +1,7 @@
 package mh;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -31,7 +32,7 @@ public class Parser {
             }
             scanner.close();
         } catch (IOException ex) {
-            return null;
+            System.out.println("Error en File.");
         }
         return listaDist;
     }
@@ -48,9 +49,72 @@ public class Parser {
             }
             scanner.close();
         } catch (IOException ex) {
-            return null;
+            System.out.println("Error en File.");
         }
         return listaPal;
+    }
+
+    public static void escribir(String filename, ArrayList<Object> lista) {
+        try {
+            File resultados = new File(filename);
+            if (resultados.exists()) {
+                resultados.delete();
+                System.out.println("\nArchivo " + resultados.getName() + " sobreescrito.\n");
+            } else {
+                System.out.println("\nArchivo " + resultados.getName() + " creado.\n");
+            }
+            resultados.createNewFile();
+            FileWriter writer = new FileWriter(filename);
+
+            writer.write("BA - n*" + BusquedaAleatoria.MAX);
+            writer.write("\n---------------------");
+            BusquedaAleatoria[] ba = (BusquedaAleatoria[]) lista.get(0);
+            for (int i = 0; i < P1.SEED.length; i++) {
+                for (int j = 0; j < P1.NUMP; j++) {
+                    writer.write("\n" + ba[i].solBA[j].coste + "\t" + ba[i].solBA[j].eval);
+                }
+                writer.write("\n---------------------");
+            }
+            writer.write("\n---------------------");
+
+            writer.write("\nBL - n*" + BusquedaLocal.MAX);
+            writer.write("\n---------------------");
+            BusquedaLocal[] bl = (BusquedaLocal[]) lista.get(1);
+            for (int i = 0; i < P1.SEED.length; i++) {
+                for (int j = 0; j < P1.NUMP; j++) {
+                    writer.write("\n" + bl[i].solBL[j].coste + "\t" + bl[i].solBL[j].eval);
+                }
+                writer.write("\n---------------------");
+            }
+            writer.write("\n---------------------");
+
+            writer.write("\nES - n*" + EnfriamientoSimulado.MAX);
+            writer.write("\n---------------------");
+            EnfriamientoSimulado[] es = (EnfriamientoSimulado[]) lista.get(2);
+            for (int i = 0; i < P1.SEED.length; i++) {
+                for (int j = 0; j < P1.NUMP; j++) {
+                    writer.write("\nT0=" + es[i].solES[j].T0);
+                    writer.write("\nenfr=" + es[i].solES[j].enfr);
+                    writer.write("\nTF=" + es[i].solES[j].TF);
+                    writer.write("\n" + es[i].solES[j].coste + "\t" + es[i].solES[j].eval);
+                }
+                writer.write("\n---------------------");
+            }
+            writer.write("\n---------------------");
+
+            writer.write("\nBV");
+            writer.write("\n---------------------");
+            BusquedaVoraz bv = (BusquedaVoraz) lista.get(3);
+            for (int i = 0; i < P1.NUMP; i++) {
+                writer.write("\n" + bv.solBV[i].coste);
+                writer.write("\n" + bv.solBV[i].m.toString());
+            }
+            writer.write("\n---------------------");
+
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error en File.");
+        }
     }
 
 }

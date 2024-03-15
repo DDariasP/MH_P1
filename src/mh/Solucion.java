@@ -12,7 +12,9 @@ public class Solucion {
     public int eval;
     public Matriz m;
     public int coste;
+    public double T0;
     public double TF;
+    public int enfr;
 
     public Solucion(Matriz n) {
         eval = -1;

@@ -50,7 +50,6 @@ public class BusquedaLocal {
                 mejor = siguiente;
             }
         }
-        System.out.println("maxeval=" + eval);
 
         return mejor;
     }

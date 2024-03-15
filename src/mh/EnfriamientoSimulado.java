@@ -28,7 +28,10 @@ public class EnfriamientoSimulado {
     public void ejecutarES() {
         for (int i = 0; i < P1.NUMP; i++) {
             solES[i] = ES(i);
-            System.out.println(solES[i].coste + "\t" + solES[i].eval + "\t" + solES[i].TF);
+            System.out.println("T0=" + solES[i].T0);
+            System.out.println("enfr=" + solES[i].enfr);
+            System.out.println("TF=" + solES[i].TF);
+            System.out.println(solES[i].coste + "\t" + solES[i].eval);
         }
     }
 
@@ -80,16 +83,20 @@ public class EnfriamientoSimulado {
         mejor.coste = Solucion.funCoste(mejor, listaDist);
         eval++;
         mejor.eval = eval;
+        mejor.T0 = T0;
         mejor.TF = T0;
+        mejor.enfr = enfr;
 
         while (true) {
             int vecindario = 0;
-            while (vecindario < VECIN) {
+            while (true) {
                 Solucion candidata = Solucion.gen2opt(cam, mejor, rand);
                 candidata.coste = Solucion.funCoste(candidata, listaDist);
                 eval++;
                 candidata.eval = eval;
+                candidata.T0 = T0;
                 candidata.TF = T;
+                candidata.enfr = enfr;
                 vecindario++;
                 delta = candidata.coste - mejor.coste;
                 aceptacion = rand.nextDouble();
@@ -113,8 +120,6 @@ public class EnfriamientoSimulado {
             }
         }
 
-        System.out.println("T0=" + T0);
-        System.out.println("enfr=" + enfr);
         return mejor;
     }
 }

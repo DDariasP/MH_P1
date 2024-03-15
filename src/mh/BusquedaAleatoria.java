@@ -50,7 +50,6 @@ public class BusquedaAleatoria {
                 mejor = siguiente;
             }
         }
-        System.out.println("maxeval=" + eval);
 
         return mejor;
     }
