@@ -9,13 +9,13 @@ public class Matriz {
     public final int filas, columnas;
     public int[][] m;
 
-    public Matriz(int a, int b) {
+    public Matriz(int a, int b, int c) {
         filas = a;
         columnas = b;
         m = new int[a][b];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                m[i][j] = -1;
+                m[i][j] = c;
             }
         }
     }

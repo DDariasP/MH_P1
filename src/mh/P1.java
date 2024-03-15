@@ -45,24 +45,31 @@ public class P1 {
             listaPal.add(Parser.leerPal("destinos_palets_" + pal + ".txt"));
         }
 
-        System.out.println("BA");
-        BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
-        System.out.println("---------------------");
-        for (int i = 0; i < SEED.length; i++) {
-            ba[i] = new BusquedaAleatoria(SEED[i]);
-            ba[i].ejecutarBA();
-            System.out.println("---------------------");
-        }
-        System.out.println("");
+//        System.out.println("BA");
+//        BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
+//        System.out.println("---------------------");
+//        for (int i = 0; i < SEED.length; i++) {
+//            ba[i] = new BusquedaAleatoria(SEED[i]);
+//            ba[i].ejecutarBA();
+//            System.out.println("---------------------");
+//        }
+//        System.out.println("");
+//
+//        System.out.println("BL");
+//        BusquedaLocal[] bl = new BusquedaLocal[SEED.length];
+//        System.out.println("---------------------");
+//        for (int i = 0; i < SEED.length; i++) {
+//            bl[i] = new BusquedaLocal(SEED[i]);
+//            bl[i].ejecutarBL();
+//            System.out.println("---------------------");
+//        }
+//        System.out.println("");
 
-        System.out.println("BL");
-        BusquedaLocal[] bl = new BusquedaLocal[SEED.length];
+        System.out.println("BV");
+        BusquedaVoraz bv = new BusquedaVoraz();
         System.out.println("---------------------");
-        for (int i = 0; i < SEED.length; i++) {
-            bl[i] = new BusquedaLocal(SEED[i]);
-            bl[i].ejecutarBL();
-            System.out.println("---------------------");
-        }
+        bv.ejecutarBV();
+        System.out.println("---------------------");
         System.out.println("");
 
     }

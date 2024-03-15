@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Parser {
 
     public static Matriz leerDist(int ciu, String filename) {
-        Matriz listaDist = new Matriz(ciu, ciu);
+        Matriz listaDist = new Matriz(ciu, ciu, -1);
         try {
             File file = new File(filename);
             Scanner scanner = new Scanner(file);

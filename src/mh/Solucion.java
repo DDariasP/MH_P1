@@ -20,7 +20,7 @@ public class Solucion {
     }
 
     public static Solucion genRandom(int cam, ArrayList<Integer> listaPal, Random rand) {
-        Matriz matriz = new Matriz(cam, P1.MAXPAL);
+        Matriz matriz = new Matriz(cam, P1.MAXPAL, -1);
 
         int[] guardados = new int[cam];
         for (int i = 0; i < cam; i++) {
