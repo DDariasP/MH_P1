@@ -57,7 +57,9 @@ public class Solucion {
         int x2 = rand.nextInt(cam);
         int y2 = rand.nextInt(P1.MAXPAL);
 
+        int tmp = matriz.m[x1][y1];
         matriz.m[x1][y1] = matriz.m[x2][y2];
+        matriz.m[x2][y2] = tmp;
 
         return (new Solucion(matriz));
     }
