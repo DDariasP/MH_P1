@@ -68,18 +68,6 @@ public class EnfriamientoSimulado {
         lnCiu = Math.log(ciu);
         T0 = sigma / lnCiu;
 
-//        if (tamP == 2 && SEED == 321) {
-//            System.out.println("\ndividendo=" + dividendo);
-//            System.out.println("divisor=" + divisor);
-//            System.out.println("media=" + media);
-//            System.out.println("sumatorio=" + sumatorio);
-//            System.out.println("ciu=" + ciu);
-//            System.out.println("sigma=" + sigma);
-//            System.out.println("lnCiu=" + lnCiu);
-//            System.out.println("T0=" + T0);
-//            System.out.println("");
-//        }
-
         T = T0;
         int eval = 0;
         int maxeval = MAX * ciu;
@@ -97,7 +85,7 @@ public class EnfriamientoSimulado {
         while (true) {
             int vecindario = 0;
             while (true) {
-                Solucion candidata = Solucion.gen2opt(cam, mejor, rand);
+                Solucion candidata = Solucion.gen2optAlt(cam, mejor, rand);
                 candidata.coste = Solucion.funCoste(candidata, listaDist);
                 eval++;
                 candidata.eval = eval;

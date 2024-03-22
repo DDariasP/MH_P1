@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class BusquedaAleatoria {
 
-    public static final int MAX = 1000;
+    public static final int MAX = 5000;
     public final int SEED;
     public Random rand;
     public Solucion[] solBA;
