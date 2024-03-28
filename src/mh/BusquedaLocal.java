@@ -42,7 +42,7 @@ public class BusquedaLocal {
         mejor.eval = eval;
 
         while (eval < maxeval) {
-            Solucion siguiente = Solucion.gen2optAlt(cam, mejor, rand);
+            Solucion siguiente = Solucion.gen4optAlt(cam, mejor, rand);
             siguiente.coste = Solucion.funCoste(siguiente, listaDist);
             eval++;
             siguiente.eval = eval;
