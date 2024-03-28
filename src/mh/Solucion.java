@@ -15,11 +15,20 @@ public class Solucion {
     public double T0;
     public double TF;
     public int enfr;
+    public Movimiento mov;
 
     public Solucion(Matriz n) {
         eval = -1;
         m = new Matriz(n);
-        coste = -1;
+        coste = Integer.MAX_VALUE;
+        mov = new Movimiento();
+    }
+
+    public Solucion(Matriz n, Movimiento a) {
+        eval = -1;
+        m = new Matriz(n);
+        coste = Integer.MAX_VALUE;
+        mov = a;
     }
 
     public static Solucion genRandom(int cam, ArrayList<Integer> listaPal, Random rand) {
@@ -141,6 +150,50 @@ public class Solucion {
         return (new Solucion(matriz));
     }
 
+    public static Solucion genMemoriaM(int cam, ArrayList<Integer> listaPal, int[][][] memoriaM) {
+        Matriz matriz = new Matriz(cam, P1.MAXPAL, -1);
+
+        for (int ite = 0; ite < listaPal.size(); ite++) {
+            int palet = listaPal.get(ite);
+            int x = -1;
+            int y = -1;
+            double min = 0;
+            boolean encontrado = false;
+            while (!encontrado) {
+                int i = 0;
+                while (!encontrado && i < cam) {
+                    int j = 0;
+                    while (!encontrado && j < P1.MAXPAL) {
+                        if (memoriaM[i][j][palet - 1] == min && matriz.m[i][j] == -1) {
+                            encontrado = true;
+                            x = i;
+                            y = j;
+                        }
+                        j++;
+                    }
+                    i++;
+                }
+                min++;
+            }
+            matriz.m[x][y] = palet;
+        }
+
+        return (new Solucion(matriz));
+    }
+
+    public static Solucion genTaboo(int cam, Solucion s, Random rand, ArrayList<Movimiento> listaTaboo) {
+
+        Movimiento nuevo = new Movimiento(rand, cam);
+        while (listaTaboo.contains(nuevo)) {
+            nuevo = new Movimiento(rand, cam);
+        }
+
+        Matriz matriz = new Matriz(s.m);
+        Movimiento.aplicar(nuevo, matriz);
+
+        return (new Solucion(matriz, nuevo));
+    }
+
     public static int funCoste(Solucion s, Matriz listaDist) {
         int coste = 0;
         for (int i = 0; i < s.m.filas; i++) {
@@ -160,4 +213,5 @@ public class Solucion {
         }
         return coste;
     }
+
 }
