@@ -23,10 +23,10 @@ public class P1 {
      */
     public static void main(String[] args) {
 
-//        System.out.println("RandomTest");
-//        System.out.println("---------------------");
-//        RandomTest.randomTest();
-//        System.out.println("---------------------\n");
+        System.out.println("RandomTest");
+        System.out.println("---------------------");
+        RandomTest.randomTest();
+        System.out.println("---------------------\n");
 
         P = new ArrayList<>();
         P.add(P0);
@@ -45,35 +45,35 @@ public class P1 {
             listaPal.add(Parser.leerPal("destinos_palets_" + pal + ".txt"));
         }
 
-//        System.out.println("BA");
-//        BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
-//        System.out.println("---------------------");
-//        for (int i = 0; i < SEED.length; i++) {
-//            ba[i] = new BusquedaAleatoria(SEED[i]);
-//            ba[i].ejecutarBA();
-//            System.out.println("---------------------");
-//        }
-//        System.out.println("");
-//
-//        System.out.println("BL");
-//        BusquedaLocal[] bl = new BusquedaLocal[SEED.length];
-//        System.out.println("---------------------");
-//        for (int i = 0; i < SEED.length; i++) {
-//            bl[i] = new BusquedaLocal(SEED[i]);
-//            bl[i].ejecutarBL();
-//            System.out.println("---------------------");
-//        }
-//        System.out.println("");
-//
-//        System.out.println("ES");
-//        EnfriamientoSimulado[] es = new EnfriamientoSimulado[SEED.length];
-//        System.out.println("---------------------");
-//        for (int i = 0; i < SEED.length; i++) {
-//            es[i] = new EnfriamientoSimulado(SEED[i]);
-//            es[i].ejecutarES();
-//            System.out.println("---------------------");
-//        }
-//        System.out.println("");
+        System.out.println("BA");
+        BusquedaAleatoria[] ba = new BusquedaAleatoria[SEED.length];
+        System.out.println("---------------------");
+        for (int i = 0; i < SEED.length; i++) {
+            ba[i] = new BusquedaAleatoria(SEED[i]);
+            ba[i].ejecutarBA();
+            System.out.println("---------------------");
+        }
+        System.out.println("");
+
+        System.out.println("BL");
+        BusquedaLocal[] bl = new BusquedaLocal[SEED.length];
+        System.out.println("---------------------");
+        for (int i = 0; i < SEED.length; i++) {
+            bl[i] = new BusquedaLocal(SEED[i]);
+            bl[i].ejecutarBL();
+            System.out.println("---------------------");
+        }
+        System.out.println("");
+
+        System.out.println("ES");
+        EnfriamientoSimulado[] es = new EnfriamientoSimulado[SEED.length];
+        System.out.println("---------------------");
+        for (int i = 0; i < SEED.length; i++) {
+            es[i] = new EnfriamientoSimulado(SEED[i]);
+            es[i].ejecutarES();
+            System.out.println("---------------------");
+        }
+        System.out.println("");
 
         System.out.println("BT");
         BusquedaTaboo[] bt = new BusquedaTaboo[SEED.length];
@@ -85,21 +85,21 @@ public class P1 {
         }
         System.out.println("");
 
-//
-//        System.out.println("BV");
-//        BusquedaVoraz bv = new BusquedaVoraz();
-//        System.out.println("---------------------");
-//        bv.ejecutarBV();
-//        System.out.println("---------------------");
-//        System.out.println("");
-//
-//        ArrayList<Object> resultados = new ArrayList<>();
-//        resultados.add(ba);
-//        resultados.add(bl);
-//        resultados.add(es);
-//        resultados.add(bv);
-//
-//        Parser.escribir("RESULTADOS.txt", resultados);
+        System.out.println("BV");
+        BusquedaVoraz bv = new BusquedaVoraz();
+        System.out.println("---------------------");
+        bv.ejecutarBV();
+        System.out.println("---------------------");
+        System.out.println("");
+
+        ArrayList<Object> resultados = new ArrayList<>();
+        resultados.add(ba);
+        resultados.add(bl);
+        resultados.add(es);
+        resultados.add(bt);
+        resultados.add(bv);
+
+        Parser.escribir("RESULTADOS.txt", resultados);
 
     }
 }

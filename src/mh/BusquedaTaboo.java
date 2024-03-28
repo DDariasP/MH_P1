@@ -24,6 +24,7 @@ public class BusquedaTaboo {
     public ArrayList<Movimiento> listaTaboo;
     public Solucion elite;
     public int[][][] memoriaM;
+    public int[][] memoriaC;
 
     public BusquedaTaboo(int a) {
         SEED = a;
@@ -60,6 +61,13 @@ public class BusquedaTaboo {
                 }
             }
         }
+        memoriaC = new int[cam][ciu];
+        for (int i = 0; i < cam; i++) {
+            for (int j = 0; j < ciu; j++) {
+                memoriaC[i][j] = 0;
+            }
+        }
+
         Solucion inicial = Solucion.genRandom(cam, listaPal, rand);
         inicial.coste = Solucion.funCoste(inicial, listaDist);
         eval++;
@@ -89,7 +97,8 @@ public class BusquedaTaboo {
                         inicial = Solucion.genRandom(cam, listaPal, rand);
                         break;
                     case 1:
-                        inicial = Solucion.genMemoriaM(cam, listaPal, memoriaM);
+//                        inicial = Solucion.genMemoriaM(cam, listaPal, memoriaM);
+                        inicial = Solucion.genMemoriaC(cam, listaPal, memoriaC);
                         break;
                     case 2:
                         inicial = elite;
@@ -147,7 +156,8 @@ public class BusquedaTaboo {
         for (int i = 0; i < cam; i++) {
             for (int j = 0; j < P1.MAXPAL; j++) {
                 int ciu = m.m[i][j] - 1;
-                memoriaM[i][j][ciu]++;
+//                memoriaM[i][j][ciu]++;
+                memoriaC[i][ciu]++;
             }
         }
     }

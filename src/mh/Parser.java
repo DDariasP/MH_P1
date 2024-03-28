@@ -102,9 +102,20 @@ public class Parser {
             }
             writer.write("\n---------------------");
 
+            writer.write("\nBT - n*" + BusquedaTaboo.MAX);
+            writer.write("\n---------------------");
+            BusquedaTaboo[] bt = (BusquedaTaboo[]) lista.get(3);
+            for (int i = 0; i < P1.SEED.length; i++) {
+                for (int j = 0; j < P1.NUMP; j++) {
+                    writer.write("\n" + bt[i].solBT[j].coste + "\t" + bt[i].solBT[j].eval);
+                }
+                writer.write("\n---------------------");
+            }
+            writer.write("\n---------------------");
+
             writer.write("\nBV");
             writer.write("\n---------------------");
-            BusquedaVoraz bv = (BusquedaVoraz) lista.get(3);
+            BusquedaVoraz bv = (BusquedaVoraz) lista.get(4);
             for (int i = 0; i < P1.NUMP; i++) {
                 writer.write("\n" + bv.solBV[i].coste);
                 writer.write("\n" + bv.solBV[i].m.toString());
