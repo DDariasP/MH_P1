@@ -68,13 +68,10 @@ public class BusquedaTaboo {
         elite = new Solucion(new Matriz(1, 1, 0));
         double[] probAcum = {KRAND, KRAND + KGREED, KRAND + KGREED + KREST};
 
-        //No limpiando la lista tabu
-        listaTaboo = new ArrayList<>();
-
         while (eval < maxeval && reini < RESTART) {
 
             //Limpiando la lista tabu
-//            listaTaboo = new ArrayList<>();
+            listaTaboo = new ArrayList<>();
             if (reini > 0) {
                 if (rand.nextBoolean()) {
                     tenencia = Math.round(tenencia + tenencia * KSIZE);
